@@ -22,7 +22,8 @@ def dice_rolling():
     print(f"Dice showed {dice}")
     return dice
 
-game_is_on = True   
+game_is_on = True
+
 def play():
     global game_is_on
 
@@ -32,7 +33,7 @@ def play():
         time.sleep(0.5)
         choice = input("Type 1 to continue, type 0 to pass or type q to quit the game: ")
 
-        if choice == "1":         
+        if choice == "1":        
             name.point += dice_rolling()
 
             if name.point > 100:
@@ -45,16 +46,18 @@ def play():
             if name.point == 100:
                 time.sleep(1)
                 print(f"Yay ! You won {name.name}.")
-                break
                 game_is_on = False
+                break
+                
                 
         elif choice == "0":
             pass
 
         else:
             print("Goodbye !")
-            break
             game_is_on = False
+            break
+            
 
 while game_is_on:
     play()
