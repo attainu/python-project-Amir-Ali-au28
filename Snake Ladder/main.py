@@ -34,11 +34,12 @@ def play():
         choice = input("Type 1 to continue, type 0 to pass or type q to quit the game: ")
 
         if choice == "1":        
-            name.point += dice_rolling()
+            dice = dice_rolling()
 
-            if name.point > 100:
+            if (name.point + dice) > 100:
                 print(f"Position can't move as it'll be bigger than 100")
             else:
+                name.point += dice
                 name.point = ladders.checkLadder(name.point)
                 name.point = snakes.check_snake(name.point)
                 print(f"Your position moved to {name.point}")
